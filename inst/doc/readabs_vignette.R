@@ -24,9 +24,6 @@ library(dplyr)
 
 glimpse(wpi)
 
-## ----read-wpi-nometadata, eval = FALSE-----------------------------------
-#  wpi_nometadata <- read_abs("6345.0", metadata = FALSE)
-
 ## ----read-lfs-1----------------------------------------------------------
 
 lfs_1 <- read_abs("6202.0", tables = 1)
@@ -44,28 +41,36 @@ glimpse(lfs_1_5)
 ## ----examine-lfs---------------------------------------------------------
 unique(lfs_1$series)
 
+## ----separate-series-----------------------------------------------------
+lfs_1_sep <- lfs_1 %>% 
+  separate_series()
+
+lfs_1_sep
+
+
 ## ----create-unemp-df-----------------------------------------------------
 
-unemp <- lfs_1 %>%
-  filter(grepl("Unemployment rate", series))
+unemp <- lfs_1_sep %>%
+  filter(series_1 == "Unemployment rate")
 
-unique(unemp$series)
+unique(unemp$series_1)
+
+unique(unemp$series_2)
 
 
 ## ----filter-male-female--------------------------------------------------
 
 unemp <- unemp %>%
-  filter(grepl("Males", series) | grepl("Females", series)) %>%
-  filter(!grepl("looked for", series)) 
+  filter(series_2 %in% c("Males", "Females"))
 
-unique(unemp$series)
+unique(unemp$series_2)
 
 ## ----graph-unemp, dpi = 200----------------------------------------------
 library(ggplot2)
 
 unemp %>%
   filter(series_type == "Seasonally Adjusted") %>%
-  mutate(sex = if_else(grepl("Males", series), "Males", "Females")) %>%
+  mutate(sex = series_2) %>%
   ggplot(aes(x = date, y = value, col = sex)) +
   geom_line() +
   theme_minimal() +
@@ -77,8 +82,21 @@ unemp %>%
        subtitle = "Unemployment rates for Australian men and women (aged 15+), 1978-2018 (per cent)",
        caption = "Source: ABS 6202.0")
 
+## ----read-abs-seriesid---------------------------------------------------
+
+employed <- read_abs(series_id = "A84423127L")
+
+glimpse(employed)
+
+unique(employed$series)
+
+## ----read-lfs-local-catno------------------------------------------------
+lfs_local_1 <- read_abs_local("6202.0")
+
+
 ## ----read-lfs-local------------------------------------------------------
 
-lfs_local <- read_abs_local(c("6202001.xls", "6202005.xls"))
+lfs_local_2 <- read_abs_local(filenames = c("6202001.xls", "6202005.xls"),
+                            path = "data/ABS/6202.0")
 
 
