@@ -95,8 +95,7 @@ lfs_local_1 <- read_abs_local("6202.0")
 
 
 ## ----read-lfs-local------------------------------------------------------
-
 lfs_local_2 <- read_abs_local(filenames = c("6202001.xls", "6202005.xls"),
-                            path = "data/ABS/6202.0")
+                              path = file.path(Sys.getenv("R_READABS_PATH", tempdir()), "6202.0"))
 
 
