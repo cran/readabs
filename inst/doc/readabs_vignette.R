@@ -11,35 +11,66 @@ set.seed(42)
 ## ----out.width = "100%", echo = FALSE-----------------------------------------
 include_graphics("VIGNETTE-spreadsheet-screenshot.png")
 
-## ----read-wpi-all-------------------------------------------------------------
+## ----library------------------------------------------------------------------
 library(readabs)
+library(dplyr)
+library(ggplot2)
 
-wpi <- read_abs("6345.0")
+## ----read-wpi-all, eval = FALSE-----------------------------------------------
+#  wpi <- read_abs("6345.0")
+
+## ----create-local-wpi, include=FALSE, eval=FALSE------------------------------
+#  wpi <- read_abs("6345.0")
+#  wpi <- head(wpi)
+#  saveRDS(wpi, "wpi.rds")
+#  
+
+## ----load-local-wpi, include = FALSE------------------------------------------
+wpi <- readRDS("wpi.rds")
+
 
 ## ----glimpse-wpi--------------------------------------------------------------
-library(dplyr)
 
-glimpse(wpi)
+head(wpi)
 
-## ----read-lfs-1---------------------------------------------------------------
+## ----create-local-lfs, include=FALSE, eval=FALSE------------------------------
+#  lfs_1 <- read_abs("6202.0", tables = 1)
+#  lfs_1 <- head(lfs_1)
+#  saveRDS(lfs_1, "lfs_1.rds")
+#  
+#  lfs_5 <- read_abs("6202.0", tables = 5)
+#  lfs_5 <- head(lfs_5)
+#  saveRDS(lfs_5, "lfs_5.rds")
 
-lfs_1 <- read_abs("6202.0", tables = 1)
+## ----read-local-lfs_1, include=FALSE------------------------------------------
+lfs_1 <- readRDS("lfs_1.rds")
 
-glimpse(lfs_1)
+## ----read-lfs-1, eval = FALSE-------------------------------------------------
+#  
+#  lfs_1 <- read_abs("6202.0", tables = 1)
+
+## ----glimpse_lfs_1------------------------------------------------------------
+head(lfs_1)
 
 
-## ----read-lfs-1-5-------------------------------------------------------------
+## ----read-local-lfs_1_t, include=FALSE----------------------------------------
+lfs_5 <- readRDS("lfs_5.rds")
+lfs_1_5 <- bind_rows(lfs_1, lfs_5)
 
-lfs_1_5 <- read_abs("6202.0", tables = c(1, 5))
 
-glimpse(lfs_1_5)
+## ----read-lfs-1-5, eval=FALSE-------------------------------------------------
+#  
+#  lfs_1_5 <- read_abs("6202.0", tables = c(1, 5))
+
+## ----glimpse_lfs_1_5----------------------------------------------------------
+head(lfs_1_5)
 
 
 ## ----examine-lfs--------------------------------------------------------------
 unique(lfs_1$series)
 
 ## ----separate-series----------------------------------------------------------
-lfs_1_sep <- lfs_1 %>% 
+lfs_1_sep <- lfs_1 %>%
   separate_series()
 
 lfs_1_sep
@@ -63,7 +94,6 @@ unemp <- unemp %>%
 unique(unemp$series_2)
 
 ## ----graph-unemp, dpi = 200---------------------------------------------------
-library(ggplot2)
 
 unemp %>%
   filter(series_type == "Seasonally Adjusted") %>%
@@ -79,11 +109,20 @@ unemp %>%
        subtitle = "Unemployment rates for Australian men and women (aged 15+), 1978-2018 (per cent)",
        caption = "Source: ABS 6202.0")
 
-## ----read-abs-seriesid--------------------------------------------------------
+## ----create-local-seriesid, eval=FALSE, include=FALSE-------------------------
+#  employed <- read_abs(series_id = "A84423127L")
+#  employed <- head(employed)
+#  saveRDS(employed, "employed.rds")
+#  
 
-employed <- read_abs(series_id = "A84423127L")
+## ----read-local-seriesid, include = FALSE-------------------------------------
+employed <- readRDS("employed.rds")
 
-glimpse(employed)
+## ----read-abs-seriesid, eval = FALSE------------------------------------------
+#  employed <- read_abs(series_id = "A84423127L")
+
+## ----glimpse-seriesid---------------------------------------------------------
+head(employed)
 
 unique(employed$series)
 
@@ -96,10 +135,10 @@ if (!nzchar(current_path)) {
   current_path <- tempdir()
 }
 
-## ----read-lfs-local-catno-----------------------------------------------------
-lfs_local_1 <- read_abs_local("6202.0")
+## ----read-lfs-local-catno, eval = FALSE---------------------------------------
+#  lfs_local_1 <- read_abs_local("6202.0")
 
-## ----read-lfs-local-----------------------------------------------------------
-lfs_local_2 <- read_abs_local(filenames = c("6202001.xls", "6202005.xls"),
-                              path = file.path(current_path, "6202.0"))
+## ----read-lfs-local, eval = FALSE---------------------------------------------
+#  lfs_local_2 <- read_abs_local(filenames = c("6202001.xls", "6202005.xls"),
+#                                path = file.path(current_path, "6202.0"))
 

@@ -1,3 +1,9 @@
+# readabs 0.4.3.2
+* New download_abs_data_cube() function added courtesy of David Diviny
+
+# readabs 0.4.3.1
+* Error when using dev version of vctrs package rectified
+
 # readabs 0.4.3
 * Alternative method now used to check for internet access when running `read_abs()`; the function now works in a broader range of IT environments
 * README and vignette refined
