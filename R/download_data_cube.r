@@ -44,7 +44,7 @@
 #'
 #' The filepath is returned invisibly which enables piping to \code{unzip()} or \code{reaxl::read_excel}.
 #'
-#' @importFrom magrittr %>%
+#' @importFrom dplyr %>%
 #' @importFrom glue glue
 #' @importFrom xml2 read_html
 #' @importFrom dplyr filter pull slice
@@ -84,7 +84,7 @@ download_abs_data_cube <- function(cat_no,
       dplyr::filter(grepl("(Latest)", .data$release)) %>%
       dplyr::pull(.data$release) %>%
       stringr::str_remove(" \\(Latest\\)") %>%
-      stringr::str_extract("Week ending \\d+\\s{1}\\w+ \\d+$|(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?) \\d+$|\\d+$") %>%
+      stringr::str_extract("Week ending \\d+\\s{1}\\w+ \\d+$|(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?).*") %>%
       stringr::str_replace_all(" ", "%20")
   }
 
