@@ -1,3 +1,10 @@
+# readabs 0.4.5
+* download_abs_data_cube() and associated functions revamped for new ABS website
+
+# readabs 0.4.4
+* Speed improvements
+* get_abs() removed
+
 # readabs 0.4.3.3
 * Minor internal change to prepare readabs for the new ABS website
 
