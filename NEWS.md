@@ -1,3 +1,11 @@
+# readabs 0.4.6
+* New read_payrolls() convenience function added
+* New read_awe() convenience function added
+* Package logo added
+
+# readabs 0.4.5.2
+* Bug fixes, including addressing a case where an ABS URL has a space in it
+
 # readabs 0.4.5.1
 * minor fixes to unit tests
 
