@@ -1,5 +1,10 @@
-# readabs 0.4.6.900
+# readabs 0.4.8
+* Internal changes to the way files are downloaded
+* Improvements to the read_awe() convenience function (able to get more data)
+
+# readabs 0.4.7
 * Package dependencies reduced
+* Bug fixed in read_payrolls()
 
 # readabs 0.4.6
 * New read_payrolls() convenience function added
