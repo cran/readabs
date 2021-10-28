@@ -212,7 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Cool! Now we’ve got a data frame (a tibble, to be precise) that contains all the time series from the Wage Price Index, converted to long and stacked on top of each other. Here’s what it looks like:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(wpi)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 x 12</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 12</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   table_no sheet_no table_title   date       series  value series_type data_type</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;         &lt;date&gt;     &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;    </span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 634501   Data1    Table 1. Tot… 1997-09-01 Quarte…  67.4 Original    INDEX    </span></span>
@@ -246,7 +246,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>lfs_1 <span class="ot">&lt;-</span> <span class="fu">read_abs</span>(<span class="st">&quot;6202.0&quot;</span>, <span class="at">tables =</span> <span class="dv">1</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lfs_1)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 x 12</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 12</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   table_no sheet_no table_title    date       series value series_type data_type</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;          &lt;date&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;    </span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 6202001  Data1    Table 1. Labo… 1978-02-01 Emplo…   NA  Trend       STOCK    </span></span>
@@ -261,7 +261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>lfs_1_5 <span class="ot">&lt;-</span> <span class="fu">read_abs</span>(<span class="st">&quot;6202.0&quot;</span>, <span class="at">tables =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lfs_1_5)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 x 12</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 12</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   table_no sheet_no table_title    date       series value series_type data_type</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;          &lt;date&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;    </span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 6202001  Data1    Table 1. Labo… 1978-02-01 Emplo…   NA  Trend       STOCK    </span></span>
@@ -279,7 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>For example, the time series ID for the number of employed people in Australia (trend) is <code>&quot;A84423127L&quot;</code>. We can get a data frame that only contains that series as follows:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>employed <span class="ot">&lt;-</span> <span class="fu">read_abs</span>(<span class="at">series_id =</span> <span class="st">&quot;A84423127L&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(employed)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 x 12</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 12</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   table_no sheet_no table_title    date       series value series_type data_type</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;          &lt;date&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;    </span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 6202001  Data1    Table 1. Labo… 1978-02-01 Emplo…    NA Trend       STOCK    </span></span>
@@ -354,7 +354,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(series_1, series_2) <span class="sc">%&gt;%</span> </span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>()</span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; `summarise()` has grouped output by &#39;series_1&#39;. You can override using the `.groups` argument.</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 42 x 2</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 42 × 2</span></span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Groups:   series_1 [14]</span></span>
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    series_1                                   series_2</span></span>
 <span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;                                      &lt;chr&gt;   </span></span>
@@ -425,15 +425,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s say I want to download cube GM1, the gross flows spreadsheet from the monthly Labour Force release.</p>
 <p>Let’s look for the name of the catalogue:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_catalogues</span>(<span class="st">&quot;labour force&quot;</span>)</span></code></pre></div>
-<pre><code>#&gt; # A tibble: 6 x 4
-#&gt;   heading      sub_heading             catalogue            url                 
-#&gt;   &lt;chr&gt;        &lt;chr&gt;                   &lt;chr&gt;                &lt;chr&gt;               
-#&gt; 1 Employment … Labour Force, Australia labour-force-austra… https://www.abs.gov…
-#&gt; 2 Employment … Labour Force, Australi… labour-force-austra… https://www.abs.gov…
-#&gt; 3 Employment … Labour Force Status of… labour-force-status… https://www.abs.gov…
-#&gt; 4 Employment … Barriers and Incentive… barriers-and-incent… https://www.abs.gov…
-#&gt; 5 Employment … Labour Force, Australi… labour-force-austra… https://www.abs.gov…
-#&gt; 6 Employment … Labour Force, Australi… labour-force-austra… https://www.abs.gov…</code></pre>
+<pre><code>#&gt; # A tibble: 6 × 4
+#&gt;   heading                     sub_heading        catalogue        url           
+#&gt;   &lt;chr&gt;                       &lt;chr&gt;              &lt;chr&gt;            &lt;chr&gt;         
+#&gt; 1 Employment and unemployment Labour Force, Aus… labour-force-au… https://www.a…
+#&gt; 2 Employment and unemployment Labour Force, Aus… labour-force-au… https://www.a…
+#&gt; 3 Employment and unemployment Labour Force Stat… labour-force-st… https://www.a…
+#&gt; 4 Employment and unemployment Barriers and Ince… barriers-and-in… https://www.a…
+#&gt; 5 Employment and unemployment Labour Force, Aus… labour-force-au… https://www.a…
+#&gt; 6 Employment and unemployment Labour Force, Aus… labour-force-au… https://www.a…</code></pre>
 <p>It looks like <code>labour-force-australia</code> is the catalogue name for the monthly Labour Force survey.</p>
 <p>Now I need to find the filename for the gross flows spreadsheet, GM1.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_files</span>(<span class="st">&quot;GM1&quot;</span>, <span class="st">&quot;labour-force-australia&quot;</span>)</span></code></pre></div>
@@ -454,7 +454,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>gf <span class="ot">&lt;-</span> <span class="fu">read_lfs_grossflows</span>()</span></code></pre></div>
 <p>Now we have a tidy tibble of the Labour Force gross flows data:</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gf)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 x 9</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 9</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   date       sex   age    state lfs_current lfs_previous   persons unit  weights</span></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;date&gt;     &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  </span></span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 2001-03-01 Males 15-19… New … Employed f… Employed full…  28.5   000s  curren…</span></span>
@@ -471,7 +471,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>payrolls <span class="ot">&lt;-</span> <span class="fu">read_payrolls</span>()</span></code></pre></div>
 <p>Here’s what we’ve got:</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(payrolls)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 x 6</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 6</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   state sa4            sa3        date       value series</span></span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;      &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt; </span></span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 NSW   Capital Region Queanbeyan 2020-01-04  92.6 jobs  </span></span>
