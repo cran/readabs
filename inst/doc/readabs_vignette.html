@@ -213,14 +213,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(wpi)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 12</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   table_no sheet_no table_title   date       series  value series_type data_type</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;         &lt;date&gt;     &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;    </span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 634501   Data1    Table 1. Tot… 1997-09-01 Quarte…  67.4 Original    INDEX    </span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 634501   Data1    Table 1. Tot… 1997-09-01 Quarte…  64.7 Original    INDEX    </span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 634501   Data1    Table 1. Tot… 1997-09-01 Quarte…  66.7 Original    INDEX    </span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 634501   Data1    Table 1. Tot… 1997-09-01 Quarte…  67.3 Seasonally… INDEX    </span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 634501   Data1    Table 1. Tot… 1997-09-01 Quarte…  64.8 Seasonally… INDEX    </span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 634501   Data1    Table 1. Tot… 1997-09-01 Quarte…  66.6 Seasonally… INDEX    </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   table_no sheet_no table_title    date       series value series_type data_type</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;          &lt;date&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;    </span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 634501   Data1    Table 1. Tota… 1997-09-01 Quart…  67.4 Original    INDEX    </span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 634501   Data1    Table 1. Tota… 1997-09-01 Quart…  64.7 Original    INDEX    </span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 634501   Data1    Table 1. Tota… 1997-09-01 Quart…  66.7 Original    INDEX    </span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 634501   Data1    Table 1. Tota… 1997-09-01 Quart…  67.3 Seasonally… INDEX    </span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 634501   Data1    Table 1. Tota… 1997-09-01 Quart…  64.8 Seasonally… INDEX    </span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 634501   Data1    Table 1. Tota… 1997-09-01 Quart…  66.6 Seasonally… INDEX    </span></span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 4 more variables: collection_month &lt;chr&gt;, frequency &lt;chr&gt;,</span></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   series_id &lt;chr&gt;, unit &lt;chr&gt;</span></span></code></pre></div>
 <p>It’s over 54 000 rows long, and 12 variables wide. Some catalogue numbers are much bigger - for example, if you get the entire monthly Labour Force release (catalogue number 6202.0), you’ll have a data frame with well over 2 million rows.</p>
@@ -353,22 +353,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>lfs_1_sep <span class="sc">%&gt;%</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(series_1, series_2) <span class="sc">%&gt;%</span> </span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>()</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; `summarise()` has grouped output by &#39;series_1&#39;. You can override using the `.groups` argument.</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 42 × 2</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Groups:   series_1 [14]</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    series_1                                   series_2</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;                                      &lt;chr&gt;   </span></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 Civilian population aged 15 years and over Females </span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 Civilian population aged 15 years and over Males   </span></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 Civilian population aged 15 years and over Persons </span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 Employed full-time                         Females </span></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 Employed full-time                         Males   </span></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 Employed full-time                         Persons </span></span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 Employed part-time                         Females </span></span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 Employed part-time                         Males   </span></span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 Employed part-time                         Persons </span></span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 Employed total                             Females </span></span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 32 more rows</span></span></code></pre></div>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; `summarise()` has grouped output by &#39;series_1&#39;. You can override using the</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; `.groups` argument.</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 42 × 2</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Groups:   series_1 [14]</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    series_1                                   series_2</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;                                      &lt;chr&gt;   </span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 Civilian population aged 15 years and over Females </span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 Civilian population aged 15 years and over Males   </span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 Civilian population aged 15 years and over Persons </span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 Employed full-time                         Females </span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 Employed full-time                         Males   </span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 Employed full-time                         Persons </span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 Employed part-time                         Females </span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 Employed part-time                         Males   </span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 Employed part-time                         Persons </span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 Employed total                             Females </span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 32 more rows</span></span></code></pre></div>
 <p>The <code>remove_totals</code> and <code>remove_nas</code> arguments to <code>separate_series()</code> can be very useful when you are tidying data. They’re both set to <code>FALSE</code> by default.</p>
 <p>We’ve now got a new tibble that still contains the original <code>series</code> column, but also contains new columns <code>series_1</code> and <code>series_2</code>, with the two parts of <code>series</code> split into these new columns.</p>
 <p>Let’s make a data frame that just contains the male and female unemployment rates over time.</p>
@@ -426,14 +427,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s look for the name of the catalogue:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_catalogues</span>(<span class="st">&quot;labour force&quot;</span>)</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 × 4
-#&gt;   heading                     sub_heading        catalogue        url           
-#&gt;   &lt;chr&gt;                       &lt;chr&gt;              &lt;chr&gt;            &lt;chr&gt;         
-#&gt; 1 Employment and unemployment Labour Force, Aus… labour-force-au… https://www.a…
-#&gt; 2 Employment and unemployment Labour Force, Aus… labour-force-au… https://www.a…
-#&gt; 3 Employment and unemployment Labour Force Stat… labour-force-st… https://www.a…
-#&gt; 4 Employment and unemployment Barriers and Ince… barriers-and-in… https://www.a…
-#&gt; 5 Employment and unemployment Labour Force, Aus… labour-force-au… https://www.a…
-#&gt; 6 Employment and unemployment Labour Force, Aus… labour-force-au… https://www.a…</code></pre>
+#&gt;   heading                     sub_heading                        catalogue url  
+#&gt;   &lt;chr&gt;                       &lt;chr&gt;                              &lt;chr&gt;     &lt;chr&gt;
+#&gt; 1 Employment and unemployment Labour Force, Australia            labour-f… http…
+#&gt; 2 Employment and unemployment Labour Force, Australia, Detailed  labour-f… http…
+#&gt; 3 Employment and unemployment Labour Force Status of Families    labour-f… http…
+#&gt; 4 Employment and unemployment Barriers and Incentives to Labour… barriers… http…
+#&gt; 5 Employment and unemployment Labour Force, Australia, Detailed… labour-f… http…
+#&gt; 6 Employment and unemployment Labour Force, Australia - Rebench… labour-f… http…</code></pre>
 <p>It looks like <code>labour-force-australia</code> is the catalogue name for the monthly Labour Force survey.</p>
 <p>Now I need to find the filename for the gross flows spreadsheet, GM1.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_files</span>(<span class="st">&quot;GM1&quot;</span>, <span class="st">&quot;labour-force-australia&quot;</span>)</span></code></pre></div>
@@ -455,14 +456,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Now we have a tidy tibble of the Labour Force gross flows data:</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gf)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 9</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   date       sex   age    state lfs_current lfs_previous   persons unit  weights</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;date&gt;     &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  </span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 2001-03-01 Males 15-19… New … Employed f… Employed full…  28.5   000s  curren…</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2001-03-01 Males 15-19… New … Employed f… Employed part…   1.93  000s  curren…</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 2001-03-01 Males 15-19… New … Employed f… Unemployed       2.93  000s  curren…</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 2001-03-01 Males 15-19… New … Employed f… Not in the la…   0.334 000s  curren…</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 2001-03-01 Males 15-19… New … Employed f… Unmatched in …   1.63  000s  curren…</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 2001-03-01 Males 15-19… New … Employed f… Incoming rota…   7.57  000s  curren…</span></span></code></pre></div>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   date       sex   age      state lfs_current lfs_previous persons unit  weights</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;date&gt;     &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  </span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 2001-03-01 Males 15-19 y… New … Employed f… Employed fu…  28.5   000s  curren…</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2001-03-01 Males 15-19 y… New … Employed f… Employed pa…   1.93  000s  curren…</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 2001-03-01 Males 15-19 y… New … Employed f… Unemployed     2.93  000s  curren…</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 2001-03-01 Males 15-19 y… New … Employed f… Not in the …   0.334 000s  curren…</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 2001-03-01 Males 15-19 y… New … Employed f… Unmatched i…   1.63  000s  curren…</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 2001-03-01 Males 15-19 y… New … Employed f… Incoming ro…   7.57  000s  curren…</span></span></code></pre></div>
 </div>
 <div id="abs-weekly-payroll-jobs-and-wages" class="section level3">
 <h3>ABS Weekly Payroll Jobs and Wages</h3>

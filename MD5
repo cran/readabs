@@ -1,7 +1,7 @@
-d3d3ff94afbfa7dd6310c3b6520ecc41 *DESCRIPTION
+6f98197550611f7c2e93082fdbceeb52 *DESCRIPTION
 9248b70cb45a53d40f7efd8c218f51b3 *LICENSE
 777d2f21adedb6dca0b3fa9174571a0c *NAMESPACE
-4ea03d6476c63d7ca7341fd79c6f6826 *NEWS.md
+c8fbfc1602ea6823cb3a93047be7d112 *NEWS.md
 6a0bc2214164e7ce47d7d5480c57a8ec *R/check_abs_connection.R
 ab2ba277a92b353714597c2329b49ae7 *R/check_latest_date.R
 237e994a4b4cb8dfd52637808fa66735 *R/download_abs.R
@@ -12,11 +12,11 @@ e9bb25b4ccb00e2790d39b348ca96e52 *R/download_data_cube.r
 f75b04c1221fbd12dac6c7b07dec4fa2 *R/fst-utils.R
 ca4db6f6694d0bfbd6172e84c471b5a2 *R/get_abs_xml_metadata.R
 f553b93dbc8361bf03fe5a7afd113fa8 *R/get_xml_dfs.R
-10dba94ac954ccdabc615ec4b9eda876 *R/read_abs.R
+c8994a94530af8cb2fd2eb7899851b4d *R/read_abs.R
 216a07d9e12d6391d06d433dba7c1a64 *R/read_abs_data.R
 6224ad56e68cc323ec6cb271941aee7c *R/read_abs_local.R
 57d0f734a525a65aab6e8bb0d0c87ca0 *R/read_awe.R
-9cbfdb6ffd4dace5e28583a94ad93937 *R/read_cpi.R
+c81be0ddcc4541aa113517c35e3ead25 *R/read_cpi.R
 11cb6452499fa18c046c499ac6318735 *R/read_lfs_grossflows.R
 88ee62090d647cbaf143458fb764b75d *R/read_payrolls.R
 ccdbe3cfce7d7ebeebb4fc1168b886bd *R/scrape_abs_catalogues.r
@@ -24,8 +24,8 @@ ccdbe3cfce7d7ebeebb4fc1168b886bd *R/scrape_abs_catalogues.r
 a4674ab96b8d116d2a40c21177633cb6 *R/search_files.R
 ff26f757a90ccba41c89657c7aa328e8 *R/separate_series.R
 4555a8092df4bb1f45ffd895ecad90f2 *R/show_available_catalogues.r
-ba28bd568f3b4df515ea9ed238f78ef8 *R/show_available_files.r
-cefed638cdd7cbe1c6026db964d0cc27 *R/sysdata.rda
+1ac773d2de033dc03f0063d08a42e3e1 *R/show_available_files.r
+aa139b372bc9e25bf1d81ffc30046dd0 *R/sysdata.rda
 8c2fdd70e881e1636eb387481b962606 *R/tidy_abs.R
 a686e149c18de177405a5b1927bb963f *R/tidy_abs_list.R
 8caee83d809fdb11d2cb3196602f94bc *R/utils.R
@@ -34,7 +34,7 @@ a686e149c18de177405a5b1927bb963f *R/tidy_abs_list.R
 714b5be38cc1ed137054d3e0a18a1a04 *build/vignette.rds
 716eaa89daf914e6cc48eedfd4ca7b6b *inst/doc/readabs_vignette.R
 6852341e1cf728b2116905380bcc5ef1 *inst/doc/readabs_vignette.Rmd
-fe1f00f5db20e7e08c2794de2423b206 *inst/doc/readabs_vignette.html
+0ce5a2a5e158d3d6b37b106d0d861ee3 *inst/doc/readabs_vignette.html
 1b1fc595066c9b8ec6132a0e1a849797 *man/check_latest_date.Rd
 545dc4ba3dc87631531d75b85e3503d9 *man/check_lfs_grossflows.Rd
 7704c8ac5cd2496bea4aee6cad102c5f *man/download_abs_data_cube.Rd
@@ -74,6 +74,7 @@ f2544c5b7423bec39a7c19d9e6f141be *tests/testthat/test-download_abs.R
 a075ac9d213e5e433d78465564bcc8ee *tests/testthat/test-get_available_files.r
 88db469429aed2b8c6797730308b3cb0 *tests/testthat/test-individual-readabs-steps.R
 bcb48b3a656b7e358be124184131450b *tests/testthat/test-local-files.R
+02a0625a6bb6ed508931783d2f82b84a *tests/testthat/test-match_tables.R
 30ebf9c2499e6e05d067024a87a484a2 *tests/testthat/test-old-functions.R
 bc88716f9f54f72c5d3eacd2ecf753cb *tests/testthat/test-read_awe.R
 89d097f1754504ce02d1fd7e14a17772 *tests/testthat/test-read_lfs_grossflows.R
