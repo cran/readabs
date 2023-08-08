@@ -3,10 +3,10 @@ library(knitr)
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "VIGNETTE-")
+  fig.path = "VIGNETTE-"
+)
 
 set.seed(42)
-
 
 ## ----out.width = "100%", echo = FALSE-----------------------------------------
 include_graphics("VIGNETTE-ts-example.png")
@@ -26,14 +26,11 @@ library(ggplot2)
 #  wpi <- read_abs("6345.0")
 #  wpi <- head(wpi)
 #  saveRDS(wpi, "wpi.rds")
-#  
 
 ## ----load-local-wpi, include = FALSE------------------------------------------
 wpi <- readRDS("wpi.rds")
 
-
 ## ----glimpse-wpi--------------------------------------------------------------
-
 head(wpi)
 
 ## ----create-local-lfs, include=FALSE, eval=FALSE------------------------------
@@ -49,31 +46,25 @@ head(wpi)
 lfs_1 <- readRDS("lfs_1.rds")
 
 ## ----read-lfs-1, eval = FALSE-------------------------------------------------
-#  
 #  lfs_1 <- read_abs("6202.0", tables = 1)
 
 ## ----glimpse_lfs_1------------------------------------------------------------
 head(lfs_1)
 
-
 ## ----read-local-lfs_1_t, include=FALSE----------------------------------------
 lfs_5 <- readRDS("lfs_5.rds")
 lfs_1_5 <- bind_rows(lfs_1, lfs_5)
 
-
 ## ----read-lfs-1-5, eval=FALSE-------------------------------------------------
-#  
 #  lfs_1_5 <- read_abs("6202.0", tables = c(1, 5))
 
 ## ----glimpse_lfs_1_5----------------------------------------------------------
 head(lfs_1_5)
 
-
 ## ----create-local-seriesid, eval=FALSE, include=FALSE-------------------------
 #  employed <- read_abs(series_id = "A84423127L")
 #  employed <- head(employed)
 #  saveRDS(employed, "employed.rds")
-#  
 
 ## ----read-local-seriesid, include = FALSE-------------------------------------
 employed <- readRDS("employed.rds")
@@ -94,12 +85,10 @@ lfs_1_sep <- lfs_1 %>%
   separate_series()
 
 lfs_1_sep %>%
-  group_by(series_1, series_2) %>% 
+  group_by(series_1, series_2) %>%
   summarise()
 
-
 ## ----create-unemp-df----------------------------------------------------------
-
 unemp <- lfs_1_sep %>%
   filter(series_1 == "Unemployment rate")
 
@@ -107,29 +96,30 @@ unique(unemp$series_1)
 
 unique(unemp$series_2)
 
-
 ## ----filter-male-female-------------------------------------------------------
-
 unemp <- unemp %>%
   filter(series_2 %in% c("Males", "Females"))
 
 unique(unemp$series_2)
 
 ## ----graph-unemp, dpi = 200---------------------------------------------------
-
 unemp %>%
   filter(series_type == "Seasonally Adjusted") %>%
   mutate(sex = series_2) %>%
   ggplot(aes(x = date, y = value, col = sex)) +
   geom_line() +
   theme_minimal() +
-  theme(legend.position = "bottom",
-        axis.title = element_blank(),
-        legend.title = element_blank(),
-        text = element_text(size = 5)) +
-  labs(title = "The male and female unemployment rates have converged",
-       subtitle = "Unemployment rates for Australian men and women (aged 15+), 1978-2018 (per cent)",
-       caption = "Source: ABS 6202.0")
+  theme(
+    legend.position = "bottom",
+    axis.title = element_blank(),
+    legend.title = element_blank(),
+    text = element_text(size = 5)
+  ) +
+  labs(
+    title = "The male and female unemployment rates have converged",
+    subtitle = "Unemployment rates for Australian men and women (aged 15+), 1978-2018 (per cent)",
+    caption = "Source: ABS 6202.0"
+  )
 
 ## ----read-lfs-local-catno, eval = FALSE---------------------------------------
 #  lfs_local_1 <- read_abs_local("6202.0")
