@@ -16,12 +16,9 @@ test_that("read_payrolls() works", {
   purrr::map(
     c(
       "industry_jobs",
-      "industry_wages",
-      "sa4_jobs",
-      "sa3_jobs",
       "subindustry_jobs",
       "empsize_jobs",
-      "gccsa_jobs"
+      "sex_age_jobs"
     ),
     ~ check_payrolls(.x)
   )

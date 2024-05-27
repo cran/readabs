@@ -1,8 +1,14 @@
+# readabs 0.4.15
+* read_lfs_datacube() convenience function added
+* New environment variable "R_READABS_DL_METHOD" can be set. When set, this is passed to the `method` argument of `download.file()`. Useful on networks where a method such as "wininet" must be used.
+
 # readabs 0.4.14
 * Fixes made to read_payrolls() to reflect changes by the ABS
 * read_api() and related experimental functions added by @kintob (thank you!) 
 to work with data from the ABS.Stat API
 * Documentation expanded and improved
+* The ability to read sub-state estimates of payroll jobs using `read_payrolls()`
+has been removed, in light of the ABS's removal of this data from the release.
 
 # readabs 0.4.13
 * Added read_job_mobility()

@@ -5,27 +5,19 @@
 \title{Download and tidy ABS payroll jobs and wages data}
 \usage{
 read_payrolls(
-  series = c("industry_jobs", "industry_wages", "sa4_jobs", "sa3_jobs",
-    "subindustry_jobs", "empsize_jobs", "gccsa_jobs", "sex_age_jobs"),
+  series = c("industry_jobs", "subindustry_jobs", "empsize_jobs", "sex_age_jobs"),
   path = Sys.getenv("R_READABS_PATH", unset = tempdir())
 )
 }
 \arguments{
 \item{series}{Character. Must be one of:
-\itemize{
+\describe{
 \item{"industry_jobs"}{ Payroll jobs by industry division, state, sex, and age
 group (Table 4)}
-\item{"industry_wages"}{ Total wages by industry division, state, sex, and age
-group (Table 4)}
-\item{"sa4_jobs"}{ Payroll jobs by statistical area 4 (SA4) and state (Table 5)}
-\item{"sa3_jobs}{ Payroll jobs by statistical area 4 (SA4), statistical
-area 3 (SA3), and state (Table 5)}
 \item{"subindustry_jobs"}{ Payroll jobs by industry sub-division and
 industry division (Table 6)}
 \item{"empsize_jobs"}{ Payroll jobs by size of employer (number of
 employees) and state (Table 7)}
-\item{"gccsa_jobs"}{ Payroll jobs by Greater Capital City Statistical
-Area (Table 5)}
 \item{"sex_age_jobs}{ Payroll jobs by sex and age (Table 8)}
 }
 The default is "industry_jobs".}
@@ -43,8 +35,8 @@ A tidy (long) \code{tbl_df}. The number of columns differs based on the \code{se
 Import a tidy tibble of ABS Weekly Payrolls data.
 }
 \details{
-The ABS 'Weekly Payroll Jobs and Wages in Australia' dataset
-is very useful to analysts of the Australian labour market.
+The ABS \href{https://www.abs.gov.au/statistics/labour/jobs/weekly-payroll-jobs/latest-release#changes-in-this-release}{Weekly Payroll Jobs}
+dataset is useful to analysts of the Australian labour market.
 It draws upon data collected
 by the Australian Taxation Office as part of its Single-Touch Payroll
 initiative and supplements the monthly Labour Force Survey. Unfortunately,
@@ -52,6 +44,11 @@ the data as published by the ABS (1) is not in a standard time series
 spreadsheet; and (2) is messy in various ways that make it hard to
 read in R. This convenience function uses \code{download_abs_data_cube()} to
 import the payrolls data, and then tidies it up.
+
+Note that this ABS release used to be called Weekly Payroll Jobs and Wages Australia.
+The total wages series were removed from this release in mid-2023 and it
+was renamed to Weekly Payroll Jobs. The ability to read total wages
+indexes using this function was therefore also removed.
 }
 \examples{
 \dontrun{
