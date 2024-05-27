@@ -2,7 +2,7 @@ Package: readabs
 Type: Package
 Title: Download and Tidy Time Series Data from the Australian Bureau of
         Statistics
-Version: 0.4.15
+Version: 0.4.16
 Authors@R: c(
            person("Matt", "Cowgill", role = c("aut", "cre"), email = "mattcowgill@gmail.com", comment = c(ORCID = "0000-0003-0422-3300")),
            person("Zoe", "Meers", role = "aut", email = "zoe.meers@sydney.edu.au"),
@@ -25,7 +25,7 @@ RoxygenNote: 7.2.3
 VignetteBuilder: knitr
 Suggests: knitr, rmarkdown, markdown, testthat (>= 2.1.0), ggplot2
 NeedsCompilation: no
-Packaged: 2024-05-27 02:32:45 UTC; r837499
+Packaged: 2024-05-27 05:18:08 UTC; r837499
 Author: Matt Cowgill [aut, cre] (<https://orcid.org/0000-0003-0422-3300>),
   Zoe Meers [aut],
   Jaron Lee [aut],
@@ -33,4 +33,4 @@ Author: Matt Cowgill [aut, cre] (<https://orcid.org/0000-0003-0422-3300>),
   Hugh Parsonage [ctb],
   Kinto Behr [ctb]
 Repository: CRAN
-Date/Publication: 2024-05-27 02:50:02 UTC
+Date/Publication: 2024-05-27 08:10:02 UTC

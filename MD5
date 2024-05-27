@@ -1,8 +1,8 @@
-a6cbd9c4cd26c15d47d43f3f5359097f *DESCRIPTION
+38ea031e32d4af44da7eb9a0429383ab *DESCRIPTION
 9248b70cb45a53d40f7efd8c218f51b3 *LICENSE
 99796e1cb244f0c7533b7ee54d42897b *NAMESPACE
-1003d54f490a1c58fe9603d0a7c309e6 *NEWS.md
-31f6aa5fe74f440bf0480a873b115912 *R/check_abs_connection.R
+4ab6cf51f3e086d9b8a63d597c51bf7d *NEWS.md
+c2b2870b4c2e45f7f029fefdc4a0d60e *R/check_abs_connection.R
 caa078262e3ca66d59a77cd7654ffcdf *R/check_latest_date.R
 87a3c18a68aa50519fc2aa0e4f401c96 *R/download_abs.R
 79d70253070ff78b774aedce1d7ba4ad *R/download_data_cube.r
