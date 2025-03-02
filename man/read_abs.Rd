@@ -53,7 +53,8 @@ if present.}
 \item{release_date}{Either \code{"latest"} or a string coercible to a date, such as
 \code{"2022-02-01"}. If \code{"latest"}, the latest release of the requested data will
 be returned. If a date, (eg. \code{"2022-02-01"}) \code{read_abs()} will
-attempt to download the data from that month's release. See \code{Details}.}
+attempt to download the data from that month's release. Note that this only
+works consistently as expected for monthly data. See \code{Details}.}
 
 \item{...}{Arguments to \code{read_abs_series()} are passed to \code{read_abs()}.}
 }
@@ -94,13 +95,16 @@ download files by setting the \code{"R_READABS_DL_METHOD"} environment variable.
 
 For example, the following code sets the environment variable for your
 current session: s\code{Sys.setenv("R_READABS_DL_METHOD" = "wininet")}
-You can add \code{"R_READABS_DL_METHOD"} to your .Rprofile to have this persist across sessions.
+You can add \code{R_READABS_DL_METHOD = "wininet"} to your .Renviron to have
+this persist across sessions.
 
 The \code{release_date} argument allows you to download table(s) other than the
 latest release. This is useful for examining revisions to time series, or
 for obtaining the version of series that were available on a given date.
 Note that you cannot supply more than one date to \code{release_date}. Note also
 that any dates prior to mid-2019 (the exact date varies by series) will fail.
+Specifying \code{release_date} only reliably works for monthly, and some
+quarterly, data. It does not work for annual data.
 }
 \examples{
 

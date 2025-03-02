@@ -45,7 +45,8 @@
 #' @param release_date Either `"latest"` or a string coercible to a date, such as
 #' `"2022-02-01"`. If `"latest"`, the latest release of the requested data will
 #' be returned. If a date, (eg. `"2022-02-01"`) `read_abs()` will
-#' attempt to download the data from that month's release. See `Details`.
+#' attempt to download the data from that month's release. Note that this only
+#' works consistently as expected for monthly data. See `Details`.
 #'
 #' @return A data frame (tibble) containing the tidied data from the ABS time
 #' series table(s).
@@ -75,13 +76,16 @@
 #'
 #' For example, the following code sets the environment variable for your
 #' current session: s`Sys.setenv("R_READABS_DL_METHOD" = "wininet")`
-#' You can add `"R_READABS_DL_METHOD"` to your .Rprofile to have this persist across sessions.
+#' You can add `R_READABS_DL_METHOD = "wininet"` to your .Renviron to have
+#' this persist across sessions.
 #'
 #' The `release_date` argument allows you to download table(s) other than the
 #' latest release. This is useful for examining revisions to time series, or
 #' for obtaining the version of series that were available on a given date.
 #' Note that you cannot supply more than one date to `release_date`. Note also
 #' that any dates prior to mid-2019 (the exact date varies by series) will fail.
+#' Specifying `release_date` only reliably works for monthly, and some
+#' quarterly, data. It does not work for annual data.
 #'
 #' @rdname read_abs
 #' @examples
