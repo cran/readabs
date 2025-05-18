@@ -1,3 +1,7 @@
+# readabs 0.4.19
+* Bug fix - read_erp() no longer returns a grouped data frame. Thanks to @nerskin for the fix.
+* Bug fix - address a situation where the ABS adds additional non-data worksheets to a time series spreadsheet
+
 # readabs 0.4.18
 * New read_erp() function added thanks to Francis Markham. Loads estimated resident population data.
 * The experimental `readabs::read_api()` function no longer coerces columns describing the data categories to numeric. Thanks to @kletts. 

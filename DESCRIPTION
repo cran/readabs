@@ -2,7 +2,7 @@ Package: readabs
 Type: Package
 Title: Download and Tidy Time Series Data from the Australian Bureau of
         Statistics
-Version: 0.4.18
+Version: 0.4.19
 Authors@R: c(
            person("Matt", "Cowgill", role = c("aut", "cre"), email = "mattcowgill@gmail.com", comment = c(ORCID = "0000-0003-0422-3300")),
            person("Zoe", "Meers", role = "aut", email = "zoe.meers@sydney.edu.au"),
@@ -20,22 +20,23 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Depends: R (>= 3.5)
 Imports: readxl (>= 1.2.0), dplyr (>= 0.8.0), hutils (>= 1.5.0), fst,
-        purrr, tidyr (>= 1.0.0), stringi, tools, glue, httr, rvest,
-        xml2, rlang, labelled
+        purrr (>= 1.0.0), tidyr (>= 1.0.0), stringi, tools, glue, httr,
+        rvest, xml2, rlang, labelled
 URL: https://github.com/mattcowgill/readabs
 BugReports: https://github.com/mattcowgill/readabs/issues
 RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 Suggests: knitr, rmarkdown, markdown, testthat (>= 2.1.0), ggplot2
 NeedsCompilation: no
-Packaged: 2025-03-02 03:40:58 UTC; mattcowgill
-Author: Matt Cowgill [aut, cre] (<https://orcid.org/0000-0003-0422-3300>),
+Packaged: 2025-05-18 06:40:18 UTC; mattcowgill
+Author: Matt Cowgill [aut, cre] (ORCID:
+    <https://orcid.org/0000-0003-0422-3300>),
   Zoe Meers [aut],
   Jaron Lee [aut],
   David Diviny [aut],
   Hugh Parsonage [ctb],
   Kinto Behr [ctb],
   Angus Moore [ctb],
-  Francis Markham [ctb] (<https://orcid.org/0000-0002-4266-2569>)
+  Francis Markham [ctb] (ORCID: <https://orcid.org/0000-0002-4266-2569>)
 Repository: CRAN
-Date/Publication: 2025-03-02 04:00:02 UTC
+Date/Publication: 2025-05-18 07:00:02 UTC
